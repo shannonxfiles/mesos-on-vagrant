@@ -1,4 +1,4 @@
-boxes = [ "mesos-master1", "mesos-master2", "mesos-master3", "mesos-slave1", "mesos-slave2", "mesos-slave3" ]
+boxes = [ "mesos-master1", "mesos-slave1", "mesos-slave2" ]
 
 Vagrant.configure(2) do |config|
   config.vm.box = "centos/7"
@@ -18,8 +18,8 @@ Vagrant.configure(2) do |config|
 				ansible.sudo = true
 				ansible.limit = "all"
 				ansible.groups = {
-					"master" => ["mesos-master1", "mesos-master2", "mesos-master3"],
-					"slave" => ["mesos-slave1", "mesos-slave2", "mesos-slave3"]
+					"master" => ["mesos-master1"],
+					"slave" => ["mesos-slave1", "mesos-slave2"]
 				}
 			end
 		end
